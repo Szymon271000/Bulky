@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulkyWeb", "BulkyWeb\BulkyW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bulky.DataAccess", "Bulky.DataAccess\Bulky.DataAccess.csproj", "{116CCC6E-8A95-402F-BB96-E4AAD8950403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bulky.Model", "Bulky.Model\Bulky.Model.csproj", "{A80B6BCC-DADB-47EE-A7BB-5FA0778C3848}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bulky.Models", "Bulky.Model\Bulky.Models.csproj", "{A80B6BCC-DADB-47EE-A7BB-5FA0778C3848}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bulky.Utility", "Bulky.Utility\Bulky.Utility.csproj", "{6616F0D9-61D8-460D-BB61-F12B38803B64}"
 EndProject
