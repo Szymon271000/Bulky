@@ -4,8 +4,9 @@ using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BulkyWeb.Controllers
+namespace BulkyWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -15,7 +16,7 @@ namespace BulkyWeb.Controllers
         }
         public IActionResult Index()
         {
-            IList<Category> objCategoryList = _unitOfWork.categoryRepository.GetAll().ToList(); 
+            IList<Category> objCategoryList = _unitOfWork.categoryRepository.GetAll().ToList();
             return View(objCategoryList);
         }
 
@@ -47,7 +48,7 @@ namespace BulkyWeb.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _unitOfWork.categoryRepository.Get(x=> x.Id == id);
+            Category? categoryFromDb = _unitOfWork.categoryRepository.Get(x => x.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
