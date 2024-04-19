@@ -6,11 +6,16 @@ namespace Bulky.DataAccess.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private ApplicationDbContext _db;
+        public IProductRepository productRepository { get; private set; }
+
         public ICategoryRepository categoryRepository { get; private set; }
+
+
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
-            this.categoryRepository = new CategoryRepository(_db);
+            categoryRepository = new CategoryRepository(_db);
+            productRepository = new ProductRepository(_db);
         }
 
         public void Save()
