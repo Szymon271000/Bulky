@@ -5,7 +5,9 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="text-white py-2">
-                    (@Model.Product.Id != 0 ? "Update": "Create") Product
+                    @* (@if(Model.Product.Id != 0 ? "Update": "Create") Product *@
+
+                    @(Model.Product.Id != 0 ? "Update" : "Create") Product
                 </h2>
             </div>
         </div>
@@ -55,7 +57,7 @@
                 </div>
 
                 <div class="form-floating py-2 col-12">
-                    <input type="file" asp-for="Product.ImageUrl" class="form-control border-0 shadow" />
+                    <input type="file" name="file" asp-for="Product.ImageUrl" class="form-control border-0 shadow" />
                     <label asp-for="Product.ImageUrl" class="ms-2"></label>
                 </div>
 
