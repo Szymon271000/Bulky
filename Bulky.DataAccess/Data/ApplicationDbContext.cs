@@ -43,7 +43,9 @@ namespace Bulky.DataAccess.Data
 
                 Price100 = 80,
 
-                CategoryId = 1
+                CategoryId = 1,
+
+                ImageUrl = ""
 
             },
 
@@ -69,7 +71,9 @@ namespace Bulky.DataAccess.Data
 
                     Price100 = 20,
 
-                    CategoryId =2
+                    CategoryId =2,
+
+                    ImageUrl = ""
 
                 },
 
@@ -95,8 +99,9 @@ namespace Bulky.DataAccess.Data
 
                     Price100 = 35,
 
-                    CategoryId = 1
+                    CategoryId = 1,
 
+                    ImageUrl = ""
 
                 },
 
@@ -122,7 +127,9 @@ namespace Bulky.DataAccess.Data
 
                     Price100 = 55,
 
-                    CategoryId = 3
+                    CategoryId = 3,
+
+                    ImageUrl = ""
 
                 },
 
@@ -148,9 +155,9 @@ namespace Bulky.DataAccess.Data
 
                     Price100 = 20,
 
-                    CategoryId = 3
+                    CategoryId = 3,
 
-
+                    ImageUrl = ""
                 },
 
                 new Product
@@ -175,8 +182,9 @@ namespace Bulky.DataAccess.Data
 
                     Price100 = 20,
 
-                    CategoryId = 2
+                    CategoryId = 2,
 
+                    ImageUrl = ""
                 }
                 );
         }
