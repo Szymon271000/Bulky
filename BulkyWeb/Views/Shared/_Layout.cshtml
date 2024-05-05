@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.6/css/dataTables.dataTables.min.css" />
 </head>
 <body>
     <header>
@@ -59,10 +60,11 @@
             Made with <i class="bi bi-heart-fill"></i>
         </div>
     </footer>
-    <script src="https://cdn.tiny.cloud/1/ml0mza95d017ia63yba3n0nc4k1jl1snsdk5juwaghks4qo3/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script> 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="//cdn.datatables.net/2.0.6/js/dataTables.min.js" </script>
+    <script src="https://cdn.tiny.cloud/1/ml0mza95d017ia63yba3n0nc4k1jl1snsdk5juwaghks4qo3/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
