@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository
 {
-    public class OrderHeaderRepository : Repository<OrderHeaderRepository>, IOrderHeaderRepository
+    public class OrderHeaderRepository : Repository<OrderHeader>, IOrderHeaderRepository
     {
         private ApplicationDbContext _db;
         public OrderHeaderRepository(ApplicationDbContext db) : base(db)
