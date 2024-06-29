@@ -25,7 +25,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
         {
             OrderVm orderVm= new()
             {
-                oderHeader = _unitOfWork.orderHeaderRepository.Get(x => x.Id == id, includeProperties: "ApplicationUser"),
+                orderHeader = _unitOfWork.orderHeaderRepository.Get(x => x.Id == id, includeProperties: "ApplicationUser"),
                 orderDetail = _unitOfWork.orderDetailRepository.GetAll(x => x.OrderHeaderId == id, includeProperties: "Product")
             };
             return View(orderVm);
