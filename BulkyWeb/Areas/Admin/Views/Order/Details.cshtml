@@ -1,6 +1,6 @@
 ﻿@model OrderVm
 <form method="post">
-    <input asp-for="orderHeader.Id" hidden/>
+    <input asp-for="orderHeader.Id" hidden />
     <br />
     <div class="container">
         <div class="card">
@@ -10,7 +10,7 @@
                         <i class="fas fa-shopping-cart"></i> &nbsp; Order Summary
                     </div>
                     <div class="col-12 col-md-4 offset-md-2 text-right">
-                        <a asp-action="Index" asp-controller="Order"class="btn btn-outline-info form-control btn-sm">Back to Orders</a>
+                        <a asp-action="Index" asp-controller="Order" class="btn btn-outline-info form-control btn-sm">Back to Orders</a>
                     </div>
                 </div>
             </div>
@@ -26,9 +26,9 @@
                             <div class="row my-1">
                                 <div class="col-3">Name</div>
                                 <div class="col-9">
-                                    @if(User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
                                     {
-                                        <input asp-for="orderHeader.Name" type="text" class="form-control"/>
+                                        <input asp-for="orderHeader.Name" type="text" class="form-control" />
                                         <span asp-validation-for="orderHeader.Name" class="text-danger"></span>
                                     }
                                     else
@@ -153,28 +153,28 @@
                             </div>
                             @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
                             {
-                                
-                            <div class="row my-1">
-                                <div class="col-3">Session ID</div>
-                                <div class="col-9">
+
+                                <div class="row my-1">
+                                    <div class="col-3">Session ID</div>
+                                    <div class="col-9">
                                         <input asp-for="orderHeader.SessionId" readonly type="text" class="form-control" />
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row my-1">
-                                <div class="col-3">Payment Intent ID</div>
-                                <div class="col-9">
+                                <div class="row my-1">
+                                    <div class="col-3">Payment Intent ID</div>
+                                    <div class="col-9">
                                         <input asp-for="orderHeader.PaymentIntentId" readonly type="text" class="form-control" />
 
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row my-1">
-                                    @if(Model.orderHeader.SessionId == null)
+                                <div class="row my-1">
+                                    @if (Model.orderHeader.SessionId == null)
                                     {
                                         <div class="col-3">Payment Due Date</div>
                                         <div class="col-9">
-                                        <input value="@Model.orderHeader.PaymentDueDate.ToShortDateString()" readonly type="text" class="form-control" />
+                                            <input value="@Model.orderHeader.PaymentDueDate.ToShortDateString()" readonly type="text" class="form-control" />
                                         </div>
                                     }
 
@@ -183,10 +183,10 @@
                                         <div class="col-3">Payment Date</div>
                                         <div class="col-3">Payment Date</div>
                                         <div class="col-9">
-                                        <input value="@Model.orderHeader.PaymentDate.ToShortDateString()" readonly type="text" class="form-control" />
+                                            <input value="@Model.orderHeader.PaymentDate.ToShortDateString()" readonly type="text" class="form-control" />
                                         </div>
                                     }
-                            </div>
+                                </div>
                             }
 
                             <div class="row my-1">
@@ -195,7 +195,7 @@
                                     <input asp-for="orderHeader.PaymentStatus" readonly type="text" class="form-control" />
                                 </div>
                             </div>
-                            @if(User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                            @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
                             {
                                 <input type="submit" asp-action="UpdateOrderDetails" class="btn btn-warning form-control my-1" value="Update Order Details" />
 
@@ -208,7 +208,7 @@
                             <label class="btn btn-outline-primary form-control my-2">Order Status - @Model.orderHeader.OrderStatus</label>
 
                             <ul class="list-group mb-3">
-                                @foreach(var detail in Model.orderDetail)
+                                @foreach (var detail in Model.orderDetail)
                                 {
                                     <li class="list-group-item d-flex justify-content-between p-2">
                                         <div class="row container">
@@ -224,7 +224,7 @@
                                         </div>
                                     </li>
                                 }
-                                
+
 
                                 <li class="list-group-item bg-primary">
                                     <div class="row container">
@@ -237,10 +237,14 @@
                                     </div>
                                 </li>
                             </ul>
-                            <input type="submit" class="btn btn-success form-control my-1" value="Pay Now" />
-                            <input type="submit" class="btn btn-primary form-control my-1" value="Start Processing" />
-                            <input type="submit" class="btn btn-primary form-control my-1" value="Ship Order" />
-                            <input type="submit" class="btn btn-danger form-control my-1" value="Cancel Order" />
+                            @if (Model.orderHeader.PaymentStatus == SD.PaymentStatusDelayedPayment &&
+                            Model.orderHeader.OrderStatus == SD.StatusShipped)
+                            {
+                            <button type="submit" class="btn btn-success form-control my-1">Pay Now</button>
+                            }
+                            <button type="submit" class="btn btn-primary form-control my-1">Start Processing</button>
+                            <button type="submit" class="btn btn-primary form-control my-1">Ship Order</button>
+                            <button type="submit" class="btn btn-danger form-control my-1">Cancel Order</button>
                         </div>
                     </div>
                 </div>
