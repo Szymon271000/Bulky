@@ -242,9 +242,23 @@
                             {
                             <button type="submit" class="btn btn-success form-control my-1">Pay Now</button>
                             }
-                            <button type="submit" class="btn btn-primary form-control my-1">Start Processing</button>
-                            <button type="submit" class="btn btn-primary form-control my-1">Ship Order</button>
-                            <button type="submit" class="btn btn-danger form-control my-1">Cancel Order</button>
+                            @if(User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                            {
+                                @if(Model.orderHeader.OrderStatus == SD.StatusApproved)
+                                {
+                                <button type="submit" class="btn btn-primary form-control my-1">Start Processing</button>
+                                }
+                                @if(Model.orderHeader.OrderStatus == SD.StatusInProgress)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control my-1">Ship Order</button>
+                                }
+                                @if (Model.orderHeader.OrderStatus != SD.StatusRefunded &&
+                                Model.orderHeader.OrderStatus != SD.StatusCancelled && 
+                                Model.orderHeader.OrderStatus != SD.StatusShipped)
+                                {
+                                    <button type="submit" class="btn btn-danger form-control my-1">Cancel Order</button>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
